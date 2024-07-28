@@ -1,0 +1,61 @@
+<% layout ("/layouts/boilerplate") %>
+    <div class="row">
+        <div class="col-8 offset-3 mt-3">
+
+
+            <body>
+                <h3> <b><%=listing.title%></b> </h3>
+        </div>
+
+        <div class="card col-6 offset-3 show-card">
+            <img src="<%=listing.image.url%>" class="card-img-top show-img" alt="alternate-img">
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+                <p class="card-text">
+                    <b>
+                        
+                    </b><br>
+                    <%=listing.description%> <br>
+                        <%=listing.price.toLocaleString("en-IN")%>&#8377; <br>
+                            <%=listing.location%> <br>
+                                <%=listing.country%>
+
+                </p>
+
+            </div>
+        </div>
+
+        <div class="btns">
+            <a class="btn btn-dark col-1 offset-3 edit-btn" href="/listings/<%=listing._id%>/edit">Edit </a>
+
+        <form method="POST" action="/listings/<%=listing._id%>?_method=DELETE">
+            <BUtton class="btn btn-dark  offset-5">
+                Delete 
+            </BUtton>
+
+        </div>
+
+
+
+        
+        </form>
+        <div class="col-8 offset-3 mt-3">
+            <hr>
+            <h4>Leave a review</h4>
+            <form class="mb-3" action="/listings/<%=listing.id/reviews" method="POST">
+                <div class="mb-3 mt-3">
+                    <label for="rating" class="form-label">Rating</label>
+                    <input type="range" min="1" max="5" id="rating" name="review[reting]" class="form-range">
+                </div>
+                <div class="mb-3 mt-3">
+                    <label for="comment" class="form-label">Comments</label>
+                    <textarea name="review[comment]" id="comment" cols="30" rows="5" class="form-control "></textarea>
+                </div class="mb-3 mt-3">
+                <button class="btn btn-outline-dark ">Submit</button>
+            </form>
+        </div>
+
+
+        </body>
+
+    </div>
